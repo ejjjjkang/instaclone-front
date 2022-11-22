@@ -1,3 +1,10 @@
+import { Outlet, useOutletContext } from "react-router-dom"
+
+interface ILoginContext {
+    Login : boolean
+}
+
 export default function Home() {
-    return <h1>Home</h1>
+    const {Login} = useOutletContext<ILoginContext>();
+    return Login? <h1>Home</h1> : <Outlet/>
 }   
